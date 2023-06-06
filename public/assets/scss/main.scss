@@ -1,0 +1,480 @@
+@import 'init'; 
+
+header {
+  @include flex(space-between);
+  @include position(sticky);
+  background-color: rgba(165, 227, 255, .3);
+  padding: 27px 70px;
+  margin: 20px 0;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e3f6ff70;
+  z-index: 999999;
+
+  .logo {
+    @extend %logo-template;
+    font-size: 22px;
+    
+    &::after {
+      @include position(absolute, auto, -7px, auto, -4px);
+      width: 120px;
+      height: 35px;
+    }
+  }
+
+  .navbar {
+    a {
+      font-size: 16px;
+      color: $secondary;
+      transition: .3s;
+    }
+    .nav-link {
+      margin-right: 35px;
+      &:hover {
+        color: $secondary-hover;
+      }
+    }
+    .btn:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .btn-login, .btn-logout {
+      @extend %btn;
+      background-color: $primary;
+      color: $secondary;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+
+    .btn-register {
+      @extend %btn;
+      background-color: $secondary;
+      color: $primary;
+      
+      &:hover {
+        background-color: $secondary-hover;
+      }
+    }
+
+  }
+}
+
+.hero-container {
+  @include flex(center, flex-start);
+  width: 100%;
+  padding: 50px;
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  border-radius: 10px;
+  min-height: 525px;
+  position: relative;
+
+  &::after {
+    content: '';
+    @include position(absolute);
+    background-color: rgba(0,0,0,.6);
+    z-index: 1;
+    border-radius: 10px;
+  }
+
+  .hero-content {
+    z-index: 2;
+    text-align: center;
+
+    .hero-logo {
+      margin-top: 50px;
+      @extend %logo-template;
+      display: inline-block;
+      font-size: 40px;
+      margin-bottom: 20px;
+      &::after {
+        @include position(absolute, auto, -15px, auto, -7px);
+        width: 215px;
+        height: 62px;
+      }
+    }
+
+    .hero-headline {
+      font-size: 47px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero-text {
+      color: $secondary;
+      font-size: 17px;
+    } 
+  }
+
+  .hero-form {
+    @include position(absolute, auto, 50%, auto, -50px);
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 475px;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px 30px 30px;
+
+
+    .form-question {
+      color: $primary;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .form-radios {
+      @include flex(flex-start);
+      gap: 20px;
+      margin-bottom: 32px;
+
+      .form-radio {
+        font-size: 17px;
+
+        label {
+          cursor: pointer;
+          color: $primary-hover;
+        }
+        
+        input[type="radio"] {
+          cursor: pointer;
+          margin-right: 4px;
+          transform: scale(1.3);
+          accent-color: $primary;
+        }
+      }
+    }
+
+    .form-button {
+      @extend %btn;
+      background-color: $primary;
+      color: $secondary;
+    
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+}
+
+.features {
+  margin-top: 100px;
+  margin-bottom: 75px;
+
+  .feature-header {
+    margin-bottom: 25px;
+
+    h3 {
+      margin-bottom: 5px;
+      color: $logo-color;
+    }
+    h1 {
+      font-size: 32px;
+      color: $secondary;
+    }
+  }
+
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+
+    .card {
+      flex-basis: 1;
+      background-color: white;
+      padding: 22px 20px 32px;
+      border-radius: 10px;
+      border-bottom: 7px solid $logo-color;
+
+      .card-title {
+        font-size: 25px;
+        color: $primary;
+      }
+
+      .card-text {
+        margin: 15px 0 30px;
+        color: $primary-hover;
+        font-size: 15px;
+      }
+
+      .btn-feature {
+        @extend %btn;
+        background-color: $primary;
+        color: $secondary;
+      
+        &:hover {
+          background-color: $primary-hover;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 30px;
+  width: 100%;
+  background-color: $secondary;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: $primary;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+// AUTH
+.auth-container {
+  max-width: 500px;
+  background-color: #fff;
+  margin: 50px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+
+  .auth-header {
+    text-align: start;
+    padding: 15px 20px;
+    border-bottom: 1px solid $logo-color;
+    background-color: $secondary;
+    color: $primary;
+  }
+
+  .auth-image {
+    font-size: 72px;
+    margin: 20px auto 25px;
+    color: $primary;
+    text-shadow: 0 5px 20px rgba(12, 11, 82, .3);
+  }
+
+  .auth-form {
+    @include flex(center, flex-start);
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 30px 30px;
+    width: 85%;
+
+    .form-group {
+      text-align: start;
+      width: 100%;
+
+      label {
+        color: $primary;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      input {
+        margin: 7px 0 15px;
+        display: block;
+        width: 100%;
+        border: 1px solid $primary;
+        border-radius: 5px;
+        outline: none;
+        padding: 15px 12px;
+        font-size: 15px;
+      }
+    }
+
+    .auth-btn {
+      @extend %btn;
+      font-weight: 500;
+      font-size: 15px;
+      background-color: $primary;
+      color: $secondary;
+      margin-top: 5px;
+      width: 100%;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+
+    .auth-small-text {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #6c6c6c;
+      width: 100%;
+      text-align: center;
+
+      a {
+        color: $primary;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// USER
+.user-board {
+  width: 100%;
+  margin: 35px auto;
+  background-color: white;
+  padding: 40px 70px 60px;
+  border-radius: 10px;
+
+  h1.user-board-title {
+    color: $primary;
+    margin-bottom: 8px;
+    border-left: 3.5px solid $primary;
+    padding-left: 7px;
+  }
+  h4.user-board-subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    color: $primary-hover;
+  }
+
+  .user-profile {
+    @include flex(space-between);
+    margin-top: 40px;
+    margin-bottom: 75px;
+
+    .user-profile-left {
+      flex: 1;
+      text-align: center;
+
+      img {
+        display: block;
+        margin: 0 auto 10px; 
+        width: 200px;
+        border-radius: 50%;
+      }
+
+      .user-profile-desc {
+        margin-bottom: 20px;
+        h1 {
+          margin-bottom: 7px;
+        }
+      }
+
+      .btn-edit-profile, .btn-change-pass {
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .btn-edit-profile {
+        @extend %btn;
+        background-color: $primary;
+        color: $secondary;
+        margin-left: 10px;
+      
+        &:hover {
+          background-color: $primary-hover;
+        }
+      }
+      .btn-change-pass {
+        @extend %btn;
+        background-color: $secondary;
+        color: $primary;
+      
+        &:hover {
+          background-color: $secondary-hover;
+        }
+      }
+
+    }
+
+    .user-profile-right {
+      @include flex(flex-start, flex-start);
+      flex-direction: column;
+      flex: 1;
+      gap: 22px;
+      
+      .box-top  {
+        @include flex(space-between);
+        width: 100%;
+        gap: 10px;
+
+        div {
+          @include flex;
+          flex-direction: column;
+          gap: 12px;
+          flex: 1;
+          height: 150px;
+          text-align: center;
+          background-color: $primary;
+          color: $secondary;
+          border-radius: 10px;
+          border: 3px solid $logo-color;
+        }
+      }
+
+      .box-bottom {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+
+        div {
+          @include flex(space-between);
+          width: 100%;
+          padding: 20px;
+          border: 1px solid $primary;
+          background-color: $secondary;
+          border-radius: 10px;
+          color: $primary;
+
+          button {
+            @extend %btn;
+            font-size: 14px;
+            background-color: $primary;
+            color: $secondary;
+          
+            &:hover {
+              background-color: $primary-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .user-votings {
+    .voting-container {
+      @include flex(space-between);
+      flex-wrap: wrap;
+      margin-top: 35px;
+      width: 100%;
+      row-gap: 20px;
+
+      .voting-box {
+        padding: 20px;
+        flex: 0 0 calc(25% - 10px);
+        background-color: $secondary;
+        border-radius: 5px;
+
+        .voting-title {
+          color: $primary;
+        }
+        .voting-date {
+          font-size: 14px;
+          color: #6c6c6c;
+          margin: 3px 0 15px;
+        }
+        .voting-desc {
+          font-size: 14px;
+          color: $primary-hover;
+          margin-bottom: 22px;
+        }
+        .btn-detail {
+          @extend %btn;
+          width: 100%;
+          display: inline-block;
+          font-size: 13px;
+          border: 1px solid $primary;
+          color: $primary;
+          
+          &:hover {
+            color: $secondary;
+            background-color: $primary-hover;
+          }
+        }
+      }
+    }
+  }
+}

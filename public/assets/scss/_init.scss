@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url('../images/bg.webp') no-repeat center center/cover;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+// variable
+$logo-color: #a5e3ff;
+$primary : #0c0b52;
+$secondary : #e3f6ff;
+$primary-hover : #000042;
+$secondary-hover: #bdeaff;
+// mixin
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin position($position: relative, $top: 0, $left: 0, $right: 0, $bottom: 0) {
+  position: $position;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+// template
+%btn {
+  font-size: 15px;
+  padding: 12px 22px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+%logo-template {
+  font-weight: bold;
+  color: $logo-color;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    content: '';
+    background-color: $primary;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    z-index: -1;
+  }
+}
