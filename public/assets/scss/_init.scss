@@ -23,6 +23,11 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+button:disabled {
+  cursor: not-allowed !important;
+  opacity: .7;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

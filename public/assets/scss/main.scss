@@ -9,7 +9,7 @@ header {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e3f6ff70;
-  z-index: 999999;
+  z-index: 3;
 
   .logo {
     @extend %logo-template;
@@ -111,7 +111,7 @@ header {
   .hero-form {
     @include position(absolute, auto, 50%, auto, -50px);
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 2;
     width: 475px;
     background-color: #fff;
     border-radius: 7px;
@@ -258,6 +258,7 @@ footer {
     .form-group {
       text-align: start;
       width: 100%;
+      margin-bottom: 15px;
 
       label {
         color: $primary;
@@ -266,7 +267,7 @@ footer {
       }
 
       input {
-        margin: 7px 0 15px;
+        margin: 7px 0 0;
         display: block;
         width: 100%;
         border: 1px solid $primary;
@@ -274,6 +275,15 @@ footer {
         outline: none;
         padding: 15px 12px;
         font-size: 15px;
+
+        &.is-invalid {
+          border-color: red !important;
+        }
+      }
+
+      .invalid-feedback {
+        color: red;
+        font-size: 14px;
       }
     }
 
@@ -474,6 +484,37 @@ footer {
             background-color: $primary-hover;
           }
         }
+      }
+    }
+  }
+}
+
+// ERRORS
+.error-container {
+  @include flex(center, center);
+  margin-top: 35px;
+  img {
+    width: 430px;
+  }
+  .error-desc {
+    h1 {
+      padding: 0 20px;
+      font-size: 38px;
+      background-color: $secondary;
+      color: $primary;
+      display: inline-block;
+    }
+    h3 {
+      color: $secondary;
+      margin: 12px 0 30px;
+    }
+    a {
+      @extend %btn;
+      background-color: $secondary;
+      color: $primary;
+    
+      &:hover {
+        background-color: $secondary-hover;
       }
     }
   }
