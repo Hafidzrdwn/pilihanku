@@ -32,6 +32,10 @@ class FormValidation
             $limit = explode(':', $rule)[1];
             if (!self::checkLength($value, $limit, 'max')) $res[$key][] = 'panjang ' . str_replace('_', ' ', $key . " maksimal {$limit} karakter!");
             break;
+          case preg_match('/^unique/', $rule):
+            $table = explode(':', $rule)[1];
+            if (self::isExist($key, $value, $table)) $res[$key][] = str_replace('_', ' ', $key . " sudah terdaftar!");
+            break;
         }
       }
     }
@@ -76,5 +80,12 @@ class FormValidation
     } else if ($state == 'max') {
       return strlen(trim($value)) <= $limit;
     }
+  }
+  private static function isExist($key, $value, $table)
+  {
+    $db = new Database;
+    $db->query("SELECT * FROM {$table} WHERE {$key} = :{$key}");
+    $db->bind($key, $value);
+    return $db->single();
   }
 }
