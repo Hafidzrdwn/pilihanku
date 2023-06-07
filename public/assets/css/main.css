@@ -306,6 +306,7 @@ footer {
   text-align: start;
   width: 100%;
   margin-bottom: 15px;
+  position: relative;
 }
 .auth-container .auth-form .form-group label {
   color: #0c0b52;
@@ -325,9 +326,23 @@ footer {
 .auth-container .auth-form .form-group input.is-invalid {
   border-color: red !important;
 }
+.auth-container .auth-form .form-group input#password, .auth-container .auth-form .form-group input#konfirmasi_password {
+  padding-right: 50px;
+}
 .auth-container .auth-form .form-group .invalid-feedback {
   color: red;
   font-size: 14px;
+}
+.auth-container .auth-form .form-group i.eye-icon {
+  position: absolute;
+  top: 68%;
+  left: auto;
+  right: 12px;
+  bottom: auto;
+  font-size: 22px;
+  transform: translateY(-50%);
+  color: #0c0b52;
+  cursor: pointer;
 }
 .auth-container .auth-form .auth-btn {
   font-weight: 500;

@@ -259,6 +259,7 @@ footer {
       text-align: start;
       width: 100%;
       margin-bottom: 15px;
+      position: relative;
 
       label {
         color: $primary;
@@ -279,11 +280,23 @@ footer {
         &.is-invalid {
           border-color: red !important;
         }
+
+        &#password, &#konfirmasi_password {
+          padding-right: 50px;
+        }
       }
 
       .invalid-feedback {
         color: red;
         font-size: 14px;
+      }
+
+      i.eye-icon {
+        @include position(absolute, 68%, auto, 12px, auto);
+        font-size: 22px;
+        transform: translateY(-50%);
+        color: $primary;
+        cursor: pointer;
       }
     }
 
