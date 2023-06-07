@@ -30,8 +30,8 @@ $(document).ready(function () {
           Swal.fire({
             icon: 'success',
             title: res.data,
-            text: 'Anda akan dialihkan menuju Dasbor!',
-            confirmButtonText: 'Oke, Siap!',
+            text: 'Anda akan dialihkan menuju Dasbor.',
+            confirmButtonText: 'Oke, Siap',
             confirmButtonColor: '#0c0b52',
             allowOutsideClick: false,
           }).then((result) => {
