@@ -9,6 +9,7 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="Masukkan password anda.." name="password">
+      <i class="fas fa-eye eye-icon"></i>
     </div>
     <button class="auth-btn">Masuk</button>
     <p class="auth-small-text">
