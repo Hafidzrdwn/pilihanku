@@ -20,7 +20,7 @@ class AuthController extends Controller
     $this->middleware->protect_post_url();
     $dt = FormValidation::make($_POST, [
       'nama' => 'required|min:3|max:50',
-      'email' => 'required|email',
+      'email' => 'required|email|unique:users',
       'password' => 'required|min:5',
       'konfirmasi_password' => 'required|matches:password'
     ]);
