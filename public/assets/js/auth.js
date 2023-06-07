@@ -57,5 +57,33 @@ $(document).ready(function () {
   
   })
 
+  $('.btn-logout').on('click', function (e) {
+    e.preventDefault()
+    Swal.fire({
+      icon: 'question',
+      title: 'Apakah anda yakin ingin keluar?',
+      text: 'Anda akan dialihkan menuju halaman utama.',
+      reverseButtons: true,
+      showCancelButton: true,
+      cancelButtonText: 'Batal',
+      confirmButtonText: 'Yakin, Keluar',
+      confirmButtonColor: '#0c0b52',
+      cancelButtonColor: '#d33',
+      allowOutsideClick: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Terima Kasih!',
+          text: 'Anda telah berhasil keluar.',
+          allowOutsideClick: false,
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          window.location.href = `${baseurl}/auth/logout`;
+        }, 1250);
+      }
+    })
+  })
 
 })
