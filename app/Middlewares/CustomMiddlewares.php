@@ -10,4 +10,19 @@ class CustomMiddlewares
       exit();
     }
   }
+
+  public function auth()
+  {
+    if (!isset($_SESSION['isLogin'])) {
+      header('Location: ' . BASEURL . '/auth/login');
+      exit();
+    }
+  }
+  public function guest()
+  {
+    if (isset($_SESSION['isLogin'])) {
+      header('Location: ' . BASEURL . '/user/' . $_SESSION['user_auth']['code']);
+      exit();
+    }
+  }
 }
