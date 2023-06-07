@@ -22,13 +22,18 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+button:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
 
-.user-board .user-votings .voting-container .voting-box .btn-detail, .user-board .user-profile .user-profile-right .box-bottom div button, .user-board .user-profile .user-profile-left .btn-change-pass, .user-board .user-profile .user-profile-left .btn-edit-profile, .auth-container .auth-form .auth-btn, .features .feature-cards .card .btn-feature, .hero-container .hero-form .form-button, header .navbar .btn-register, header .navbar .btn-login, header .navbar .btn-logout {
+.error-container .error-desc a, .user-board .user-votings .voting-container .voting-box .btn-detail, .user-board .user-profile .user-profile-right .box-bottom div button, .user-board .user-profile .user-profile-left .btn-change-pass, .user-board .user-profile .user-profile-left .btn-edit-profile, .auth-container .auth-form .auth-btn, .features .feature-cards .card .btn-feature, .hero-container .hero-form .form-button, header .navbar .btn-register, header .navbar .btn-login, header .navbar .btn-logout {
   font-size: 15px;
   padding: 12px 22px;
   font-weight: 600;
@@ -70,7 +75,7 @@ header {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(227, 246, 255, 0.4392156863);
-  z-index: 999999;
+  z-index: 3;
 }
 header .logo {
   font-size: 22px;
@@ -171,7 +176,7 @@ header .navbar .btn-register:hover {
   right: auto;
   bottom: -50px;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 2;
   width: 475px;
   background-color: #fff;
   border-radius: 7px;
@@ -300,6 +305,7 @@ footer {
 .auth-container .auth-form .form-group {
   text-align: start;
   width: 100%;
+  margin-bottom: 15px;
 }
 .auth-container .auth-form .form-group label {
   color: #0c0b52;
@@ -307,7 +313,7 @@ footer {
   font-weight: 500;
 }
 .auth-container .auth-form .form-group input {
-  margin: 7px 0 15px;
+  margin: 7px 0 0;
   display: block;
   width: 100%;
   border: 1px solid #0c0b52;
@@ -315,6 +321,13 @@ footer {
   outline: none;
   padding: 15px 12px;
   font-size: 15px;
+}
+.auth-container .auth-form .form-group input.is-invalid {
+  border-color: red !important;
+}
+.auth-container .auth-form .form-group .invalid-feedback {
+  color: red;
+  font-size: 14px;
 }
 .auth-container .auth-form .auth-btn {
   font-weight: 500;
@@ -495,6 +508,34 @@ footer {
 .user-board .user-votings .voting-container .voting-box .btn-detail:hover {
   color: #e3f6ff;
   background-color: #000042;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+.error-container img {
+  width: 430px;
+}
+.error-container .error-desc h1 {
+  padding: 0 20px;
+  font-size: 38px;
+  background-color: #e3f6ff;
+  color: #0c0b52;
+  display: inline-block;
+}
+.error-container .error-desc h3 {
+  color: #e3f6ff;
+  margin: 12px 0 30px;
+}
+.error-container .error-desc a {
+  background-color: #e3f6ff;
+  color: #0c0b52;
+}
+.error-container .error-desc a:hover {
+  background-color: #bdeaff;
 }
 
 /*# sourceMappingURL=main.css.map */
