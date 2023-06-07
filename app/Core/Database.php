@@ -61,6 +61,11 @@ class Database
     $this->stmt->execute();
   }
 
+  public function lastInsertId()
+  {
+    return $this->dbh->lastInsertId();
+  }
+
   public function resultSet()
   {
     $this->execute();
@@ -76,5 +81,30 @@ class Database
   public function rowCount()
   {
     return $this->stmt->rowCount();
+  }
+
+  public function insert($data, $table_name)
+  {
+
+    $columns = implode(', ', array_keys($data));
+    $placeholders = ':' . implode(', :', array_keys($data));
+
+    $query = "INSERT INTO $table_name ($columns) VALUES ($placeholders)";
+
+    $this->query($query);
+
+    foreach ($data as $param => $value) {
+      $this->bind($param, $value);
+    }
+
+    $this->execute();
+    return $this->find($this->lastInsertId(), $table_name);
+  }
+
+  public function find($id, $table_name)
+  {
+    $this->query('SELECT * FROM ' . $table_name . ' WHERE id=:id');
+    $this->bind('id', $id);
+    return $this->single();
   }
 }
