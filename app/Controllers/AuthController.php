@@ -35,7 +35,10 @@ class AuthController extends Controller
 
     if ($dt['fails']) {
       // save errors
-      echo json_encode(['errors' => $dt['errors']]);
+      echo json_encode([
+        'status' => false,
+        'errors' => $dt['errors']
+      ]);
       return;
     }
 
@@ -49,7 +52,11 @@ class AuthController extends Controller
     unset($dt['konfirmasi_password']);
 
     if ($insert = $this->model('User')->create($dt)) {
-      echo json_encode(['data' => 'Registrasi Akun Berhasil!', 'code' => $insert['code']]);
+      echo json_encode([
+        'status' => true,
+        'message' => 'Registrasi Akun Berhasil!',
+        'data' => $insert['code']
+      ]);
       $_SESSION['isLogin'] = true;
       unset($insert['id']);
       unset($insert['password']);
@@ -62,6 +69,42 @@ class AuthController extends Controller
   {
     $this->middleware->protect_post_url();
     $this->middleware->guest();
+    $dt = FormValidation::make($_POST, [
+      'email' => 'required|email',
+      'password' => 'required|min:5',
+    ]);
+
+    if ($dt['fails']) {
+      // save errors
+      echo json_encode([
+        'status' => false,
+        'errors' => $dt['errors']
+      ]);
+      return;
+    }
+
+    $user = $this->model('User')->getBy(['email' => $_POST['email']]);
+
+    if ($user) {
+      if (password_verify($_POST['password'], $user['password'])) {
+        $_SESSION['isLogin'] = true;
+        unset($user['password']);
+        unset($user['id']);
+        $_SESSION['user_auth'] = $user;
+        echo json_encode([
+          'status' => true,
+          'message' => 'Berhasil Masuk!',
+          'data' => $user['code']
+        ]);
+        exit();
+      }
+    }
+
+    echo json_encode([
+      'status' => false,
+      'message' => '<span><strong>Email atau Password</strong> salah!</span>'
+    ]);
+    exit();
   }
 
   public function logout()

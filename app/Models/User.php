@@ -14,4 +14,9 @@ class User extends Database
   {
     return $this->find($id, $this->table);
   }
+
+  public function getBy($data = [])
+  {
+    return $this->where($data, $this->table);
+  }
 }

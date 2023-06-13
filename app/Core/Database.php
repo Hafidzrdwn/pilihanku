@@ -107,4 +107,26 @@ class Database
     $this->bind('id', $id);
     return $this->single();
   }
+
+  public function where($data, $table_name)
+  {
+    $query = 'SELECT * FROM ' . $table_name . ' WHERE ';
+    $i = 0;
+    foreach ($data as $key => $value) {
+      if ($i == 0) {
+        $query .= $key . ' = :' . $key;
+      } else {
+        $query .= ' AND ' . $key . ' = :' . $key;
+      }
+      $i++;
+    }
+
+    $this->query($query);
+
+    foreach ($data as $key => $value) {
+      $this->bind($key, $value);
+    }
+
+    return $this->single();
+  }
 }
