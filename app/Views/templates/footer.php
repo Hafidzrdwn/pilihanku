@@ -12,6 +12,7 @@
 <script src="https://kit.fontawesome.com/2e160f1ac0.js" crossorigin="anonymous"></script>
 <script src="<?= BASEURL; ?>/assets/js/script.js?v=<?php echo time(); ?>"></script>
 <script src="<?= BASEURL; ?>/assets/js/auth.js?v=<?php echo time(); ?>"></script>
+<script src="<?= BASEURL; ?>/assets/js/utils/Alert.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>
