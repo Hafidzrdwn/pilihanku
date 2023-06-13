@@ -1,12 +1,16 @@
+<?php
+$user = $data['user'];
+$short_name = explode(' ', $user['name'])[0];
+?>
 <div class="user-board">
   <h1 class="user-board-title">Dasbor Anda🚀</h1>
-  <h4 class="user-board-subtitle">Halo, <?= $data['judul']; ?>👋</h4>
+  <h4 class="user-board-subtitle">Halo, <?= $short_name; ?>👋</h4>
   <div class="user-profile">
     <div class="user-profile-left">
       <img src="<?= BASEURL; ?>/assets/images/default.jpg" alt="user avatar">
       <div class="user-profile-desc">
-        <h1>Nama Lengkap disini</h1>
-        <h4>Email disini | Kode anda : asUwB1233</h4>
+        <h1><?= $user['name']; ?></h1>
+        <h4><?= $user['email']; ?> | Kode anda : <?= $user['code']; ?></h4>
       </div>
       <button class="btn-change-pass">Ganti password</button>
       <button class="btn-edit-profile">Edit profil</button>
