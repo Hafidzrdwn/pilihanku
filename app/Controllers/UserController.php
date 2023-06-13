@@ -12,6 +12,7 @@ class UserController extends Controller
   public function index($code)
   {
     $data['judul'] = $code;
+    $data['user'] = $this->model('User')->getBy(['code' => $code]);
 
     $this->render('user/dashboard', $data);
   }
