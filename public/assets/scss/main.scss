@@ -1,5 +1,52 @@
 @import 'init'; 
 
+// INIT COMPONENTS
+.form-group {
+  text-align: start;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+
+  label {
+    color: $primary;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  input {
+    margin: 7px 0 0;
+    display: block;
+    width: 100%;
+    border: 1px solid $primary;
+    border-radius: 5px;
+    outline: none;
+    padding: 15px 12px;
+    font-size: 15px;
+
+    &.is-invalid {
+      border-color: $primary-red !important;
+    }
+
+    &.form-password {
+      padding-right: 50px;
+    }
+  }
+
+  .invalid-feedback {
+    color: $primary-red;
+    font-size: 14px;
+  }
+
+  i.eye-icon {
+    @include position(absolute, 68%, auto, 12px, auto);
+    font-size: 22px;
+    transform: translateY(-50%);
+    color: $primary;
+    cursor: pointer;
+  }
+}
+
+
 header {
   @include flex(space-between);
   @include position(sticky);
@@ -255,51 +302,6 @@ footer {
     padding: 0 30px 30px;
     width: 85%;
 
-    .form-group {
-      text-align: start;
-      width: 100%;
-      margin-bottom: 15px;
-      position: relative;
-
-      label {
-        color: $primary;
-        font-size: 15px;
-        font-weight: 500;
-      }
-
-      input {
-        margin: 7px 0 0;
-        display: block;
-        width: 100%;
-        border: 1px solid $primary;
-        border-radius: 5px;
-        outline: none;
-        padding: 15px 12px;
-        font-size: 15px;
-
-        &.is-invalid {
-          border-color: red !important;
-        }
-
-        &#password, &#konfirmasi_password {
-          padding-right: 50px;
-        }
-      }
-
-      .invalid-feedback {
-        color: red;
-        font-size: 14px;
-      }
-
-      i.eye-icon {
-        @include position(absolute, 68%, auto, 12px, auto);
-        font-size: 22px;
-        transform: translateY(-50%);
-        color: $primary;
-        cursor: pointer;
-      }
-    }
-
     .auth-btn {
       @extend %btn;
       font-weight: 500;
@@ -336,9 +338,21 @@ footer {
 .user-board {
   width: 100%;
   margin: 35px auto;
-  background-color: white;
   padding: 40px 70px 60px;
   border-radius: 10px;
+  position: relative;
+  background: url(../images/bg-dot.webp);
+
+  * {
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    @include position(absolute, 0,0,0,0);
+    background-color: rgba(227, 246, 255, .35);
+    border-radius: 10px;
+  }
 
   h1.user-board-title {
     color: $primary;
@@ -351,7 +365,7 @@ footer {
     font-size: 18px;
     color: $primary-hover;
   }
-
+  
   .user-profile {
     @include flex(space-between);
     margin-top: 40px;
@@ -369,7 +383,7 @@ footer {
       }
 
       .user-profile-desc {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         h1 {
           margin-bottom: 7px;
         }
@@ -500,6 +514,45 @@ footer {
             background-color: $primary-hover;
           }
         }
+      }
+    }
+  }
+}
+
+.pages-board {
+  width: 100%;
+  .board-title {
+    color: $primary;
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .pages-form {
+    width: 100%;
+    .back-btn {
+      display: inline-block;
+      @extend %btn;
+      font-weight: 500;
+      font-size: 15px;
+      background-color: $primary-red;
+      color: #fff;
+      margin-right: 10px;
+      margin-top: 8px;
+      
+      &:hover {
+        background-color: $primary-red-hover;
+      }
+    }
+    .btn-action {
+      @extend %btn;
+      letter-spacing: 1px;
+      background-color: $primary;
+      color: $secondary;
+      font-weight: 500;
+    
+      &:hover {
+        background-color: $primary-hover;
       }
     }
   }

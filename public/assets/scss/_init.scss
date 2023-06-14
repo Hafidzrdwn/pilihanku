@@ -40,6 +40,8 @@ $primary : #0c0b52;
 $secondary : #e3f6ff;
 $primary-hover : #000042;
 $secondary-hover: #bdeaff;
+$primary-red : #dd3333;
+$primary-red-hover : #b42727;
 // mixin
 @mixin flex($justify: center, $align: center) {
   display: flex;

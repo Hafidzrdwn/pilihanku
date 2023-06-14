@@ -33,7 +33,7 @@ button:disabled {
   position: relative;
 }
 
-.error-container .error-desc a, .user-board .user-votings .voting-container .voting-box .btn-detail, .user-board .user-profile .user-profile-right .box-bottom div button, .user-board .user-profile .user-profile-left .btn-change-pass, .user-board .user-profile .user-profile-left .btn-edit-profile, .auth-container .auth-form .auth-btn, .features .feature-cards .card .btn-feature, .hero-container .hero-form .form-button, header .navbar .btn-register, header .navbar .btn-login, header .navbar .btn-logout {
+.error-container .error-desc a, .pages-board .pages-form .btn-action, .pages-board .pages-form .back-btn, .user-board .user-votings .voting-container .voting-box .btn-detail, .user-board .user-profile .user-profile-right .box-bottom div button, .user-board .user-profile .user-profile-left .btn-change-pass, .user-board .user-profile .user-profile-left .btn-edit-profile, .auth-container .auth-form .auth-btn, .features .feature-cards .card .btn-feature, .hero-container .hero-form .form-button, header .navbar .btn-register, header .navbar .btn-login, header .navbar .btn-logout {
   font-size: 15px;
   padding: 12px 22px;
   font-weight: 600;
@@ -58,6 +58,49 @@ button:disabled {
   border-top-left-radius: 7px;
   border-bottom-right-radius: 7px;
   z-index: -1;
+}
+
+.form-group {
+  text-align: start;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+}
+.form-group label {
+  color: #0c0b52;
+  font-size: 15px;
+  font-weight: 500;
+}
+.form-group input {
+  margin: 7px 0 0;
+  display: block;
+  width: 100%;
+  border: 1px solid #0c0b52;
+  border-radius: 5px;
+  outline: none;
+  padding: 15px 12px;
+  font-size: 15px;
+}
+.form-group input.is-invalid {
+  border-color: #dd3333 !important;
+}
+.form-group input.form-password {
+  padding-right: 50px;
+}
+.form-group .invalid-feedback {
+  color: #dd3333;
+  font-size: 14px;
+}
+.form-group i.eye-icon {
+  position: absolute;
+  top: 68%;
+  left: auto;
+  right: 12px;
+  bottom: auto;
+  font-size: 22px;
+  transform: translateY(-50%);
+  color: #0c0b52;
+  cursor: pointer;
 }
 
 header {
@@ -302,48 +345,6 @@ footer {
   padding: 0 30px 30px;
   width: 85%;
 }
-.auth-container .auth-form .form-group {
-  text-align: start;
-  width: 100%;
-  margin-bottom: 15px;
-  position: relative;
-}
-.auth-container .auth-form .form-group label {
-  color: #0c0b52;
-  font-size: 15px;
-  font-weight: 500;
-}
-.auth-container .auth-form .form-group input {
-  margin: 7px 0 0;
-  display: block;
-  width: 100%;
-  border: 1px solid #0c0b52;
-  border-radius: 5px;
-  outline: none;
-  padding: 15px 12px;
-  font-size: 15px;
-}
-.auth-container .auth-form .form-group input.is-invalid {
-  border-color: red !important;
-}
-.auth-container .auth-form .form-group input#password, .auth-container .auth-form .form-group input#konfirmasi_password {
-  padding-right: 50px;
-}
-.auth-container .auth-form .form-group .invalid-feedback {
-  color: red;
-  font-size: 14px;
-}
-.auth-container .auth-form .form-group i.eye-icon {
-  position: absolute;
-  top: 68%;
-  left: auto;
-  right: 12px;
-  bottom: auto;
-  font-size: 22px;
-  transform: translateY(-50%);
-  color: #0c0b52;
-  cursor: pointer;
-}
 .auth-container .auth-form .auth-btn {
   font-weight: 500;
   font-size: 15px;
@@ -372,8 +373,22 @@ footer {
 .user-board {
   width: 100%;
   margin: 35px auto;
-  background-color: white;
   padding: 40px 70px 60px;
+  border-radius: 10px;
+  position: relative;
+  background: url(../images/bg-dot.webp);
+}
+.user-board * {
+  position: relative;
+}
+.user-board::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(227, 246, 255, 0.35);
   border-radius: 10px;
 }
 .user-board h1.user-board-title {
@@ -405,7 +420,7 @@ footer {
   border-radius: 50%;
 }
 .user-board .user-profile .user-profile-left .user-profile-desc {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .user-board .user-profile .user-profile-left .user-profile-desc h1 {
   margin-bottom: 7px;
@@ -525,6 +540,40 @@ footer {
 }
 .user-board .user-votings .voting-container .voting-box .btn-detail:hover {
   color: #e3f6ff;
+  background-color: #000042;
+}
+
+.pages-board {
+  width: 100%;
+}
+.pages-board .board-title {
+  color: #0c0b52;
+  font-size: 27px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.pages-board .pages-form {
+  width: 100%;
+}
+.pages-board .pages-form .back-btn {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #dd3333;
+  color: #fff;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+.pages-board .pages-form .back-btn:hover {
+  background-color: #b42727;
+}
+.pages-board .pages-form .btn-action {
+  letter-spacing: 1px;
+  background-color: #0c0b52;
+  color: #e3f6ff;
+  font-weight: 500;
+}
+.pages-board .pages-form .btn-action:hover {
   background-color: #000042;
 }
 
