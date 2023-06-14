@@ -129,4 +129,41 @@ class Database
 
     return $this->single();
   }
+
+  public function update($where, $data, $table_name)
+  {
+    $query = 'UPDATE ' . $table_name . ' SET ';
+    $i = 0;
+    foreach ($data as $key => $value) {
+      if ($i == 0) {
+        $query .= $key . ' = :' . $key;
+      } else {
+        $query .= ', ' . $key . ' = :' . $key;
+      }
+      $i++;
+    }
+
+    $query .= ' WHERE ';
+    $i = 0;
+    foreach ($where as $key => $value) {
+      if ($i == 0) {
+        $query .= $key . ' = :' . $key;
+      } else {
+        $query .= ' AND ' . $key . ' = :' . $key;
+      }
+      $i++;
+    }
+
+    $this->query($query);
+
+    foreach ($data as $key => $value) {
+      $this->bind($key, $value);
+    }
+
+    foreach ($where as $key => $value) {
+      $this->bind($key, $value);
+    }
+
+    return $this->execute();
+  }
 }

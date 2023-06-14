@@ -10,6 +10,11 @@ class User extends Database
     return $this->insert($data, $this->table);
   }
 
+  public function edit($where, $data)
+  {
+    return $this->update($where, $data, $this->table);
+  }
+
   public function user($id)
   {
     return $this->find($id, $this->table);
