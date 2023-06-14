@@ -67,6 +67,7 @@ $(document).ready(function () {
     })
   })  
 
+  // submit login form
   $('#login-form').on('submit', function (e) {
     // prevent default action
     e.preventDefault(); 
@@ -118,20 +119,8 @@ $(document).ready(function () {
             return
           }
           
-          // if Login success, show success alert
-          Swal.fire({
-            icon: 'success',
-            title: res.message,
-            text: 'Anda akan dialihkan menuju Dasbor.',
-            confirmButtonText: 'Oke, Siap',
-            confirmButtonColor: '#0c0b52',
-            allowOutsideClick: false,
-          }).then((result) => {
-            // if success and user click "Oke, Siap", redirect to dashboard
-            if (result.isConfirmed) {
-              window.location.href = `${baseurl}/user/${res.data}`;
-            }
-          })
+          // if Login success
+          window.location.href = `${baseurl}/user/${res.data}`;
         }, 500);
       }, 
       // if ajax request failed

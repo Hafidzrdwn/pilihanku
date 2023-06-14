@@ -91,9 +91,12 @@ class AuthController extends Controller
         unset($user['password']);
         unset($user['id']);
         $_SESSION['user_auth'] = $user;
+        $_SESSION['alert'] = [
+          'type' => 'success',
+          'message' => 'Anda Berhasil Masuk!'
+        ];
         echo json_encode([
           'status' => true,
-          'message' => 'Berhasil Masuk!',
           'data' => $user['code']
         ]);
         exit();
