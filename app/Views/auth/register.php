@@ -14,13 +14,13 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Masukkan password anda.." name="password">
+      <input type="password" id="password" class="form-password" placeholder="Masukkan password anda.." name="password">
       <div class="invalid-feedback"></div>
       <i class="fas fa-eye eye-icon"></i>
     </div>
     <div class="form-group">
       <label for="konfirmasi_password">Konfirmasi Password</label>
-      <input type="password" id="konfirmasi_password" placeholder="Konfirmasi password anda.." name="konfirmasi_password">
+      <input type="password" id="konfirmasi_password" class="form-password" placeholder="Konfirmasi password anda.." name="konfirmasi_password">
       <div class="invalid-feedback"></div>
       <i class="fas fa-eye eye-icon"></i>
     </div>

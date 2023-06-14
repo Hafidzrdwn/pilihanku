@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Masukkan password anda.." name="password">
+      <input type="password" id="password" class="form-password" placeholder="Masukkan password anda.." name="password">
       <div class="invalid-feedback"></div>
       <i class="fas fa-eye eye-icon"></i>
     </div>
