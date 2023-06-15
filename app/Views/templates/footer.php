@@ -4,6 +4,12 @@
   </p>
 </footer>
 </div>
+<div class="modal-img-overlay">
+  <div class="modal-img-content">
+    <img src="<?= BASEURL . '/assets/images/profile-images/' . $user['profile']; ?>" alt="user profile image">
+  </div>
+  <button type="button" class="close-modal" onclick="return this.parentElement.style.display = 'none'">&times;</button>
+</div>
 <script>
   const baseurl = "<?= BASEURL; ?>";
 </script>

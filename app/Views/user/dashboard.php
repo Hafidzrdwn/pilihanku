@@ -1,11 +1,10 @@
 <?php
 $page = $data['page'];
 $user = $data['user'];
-$short_name = explode(' ', $user['name'])[0];
 ?>
 <div class="user-board">
   <h1 class="user-board-title">Dasbor Anda🚀</h1>
-  <h4 class="user-board-subtitle">Halo, <?= $short_name; ?>👋</h4>
+  <h4 class="user-board-subtitle">Halo, <?= $user['name']; ?>👋</h4>
   <?php if (isset($_SESSION['alert'])) : ?>
     <?php $alert = $_SESSION['alert']; ?>
     <div class="alert alert-<?= $alert['type']; ?>" style="margin-top: 15px;">
@@ -16,7 +15,7 @@ $short_name = explode(' ', $user['name'])[0];
   <?php endif; ?>
   <div class="user-profile">
     <div class="user-profile-left">
-      <img src="<?= BASEURL; ?>/assets/images/default.jpg" alt="user avatar">
+      <img class="clicked-img" src="<?= BASEURL; ?>/assets/images/profile-images/<?= $user['profile']; ?>" alt="user avatar">
       <div class="user-profile-desc">
         <h1><?= $user['name']; ?></h1>
         <h4><?= $user['email']; ?> | Kode anda : <?= $user['code']; ?></h4>
@@ -31,6 +30,11 @@ $short_name = explode(' ', $user['name'])[0];
       ?>
           <?php break; ?>
         <?php
+        case 'edit_profile':
+          require_once 'pages/user_edit_profile.php';
+        ?>
+        <?php
+          break;
         default: ?>
           <div class="box-top">
             <div class="box-voting-created">

@@ -66,6 +66,31 @@ button:disabled {
   margin-bottom: 15px;
   position: relative;
 }
+.form-group .preview-img {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.form-group .preview-img .btn-delete-profile {
+  color: #dd3333;
+  cursor: pointer;
+}
+.form-group .preview-img .btn-delete-profile:hover {
+  text-decoration: underline;
+}
+.form-group .preview-img img {
+  width: 150px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-group .preview-img img:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
 .form-group label {
   color: #0c0b52;
   font-size: 15px;
@@ -80,6 +105,10 @@ button:disabled {
   outline: none;
   padding: 15px 12px;
   font-size: 15px;
+}
+.form-group input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
 }
 .form-group input.is-invalid {
   border-color: #dd3333 !important;
@@ -417,7 +446,12 @@ footer {
   display: block;
   margin: 0 auto 10px;
   width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border: solid 1px #6c6c6c;
   border-radius: 50%;
+  cursor: pointer;
 }
 .user-board .user-profile .user-profile-left .user-profile-desc {
   margin-bottom: 30px;
@@ -635,6 +669,48 @@ footer {
   background-color: #f8d7da;
   color: #58151c;
   border-color: #f1aeb5;
+}
+
+.modal-img-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999999;
+}
+.modal-img-overlay .modal-img-content {
+  width: 600px;
+  height: 500px;
+}
+.modal-img-overlay .modal-img-content img {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.modal-img-overlay .close-modal {
+  position: absolute;
+  top: 35px;
+  left: auto;
+  right: 50px;
+  bottom: auto;
+  color: #dd3333;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 50px;
+  transition: 0.3s;
+}
+.modal-img-overlay .close-modal:hover {
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=main.css.map */
