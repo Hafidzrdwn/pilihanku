@@ -13,3 +13,5 @@
 <body>
   <div class="container">
     <?php require_once('navbar.php'); ?>
+
+    <div id="section-content">

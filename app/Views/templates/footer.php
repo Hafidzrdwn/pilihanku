@@ -1,3 +1,4 @@
+</div>
 <footer>
   <p class="footer-text">
     &copy; <?= date('Y'); ?> - PilihanKu

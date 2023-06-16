@@ -34,6 +34,10 @@ button:disabled {
   position: relative;
 }
 
+#section-content {
+  min-height: 88vh;
+}
+
 // variable
 $logo-color: #a5e3ff;
 $primary : #0c0b52;

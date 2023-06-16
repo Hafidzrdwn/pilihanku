@@ -33,6 +33,10 @@ button:disabled {
   position: relative;
 }
 
+#section-content {
+  min-height: 88vh;
+}
+
 .error-container .error-desc a, .pages-board .pages-form .btn-action, .pages-board .pages-form .back-btn, .user-board .user-votings .voting-container .voting-box .btn-detail, .user-board .user-profile .user-profile-right .box-bottom div button, .user-board .user-profile .user-profile-left .btn-change-pass, .user-board .user-profile .user-profile-left .btn-edit-profile, .auth-container .auth-form .auth-btn, .features .feature-cards .card .btn-feature, .hero-container .hero-form .form-button, header .navbar .btn-register, header .navbar .btn-login, header .navbar .btn-logout {
   font-size: 15px;
   padding: 12px 22px;
