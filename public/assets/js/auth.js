@@ -150,8 +150,11 @@ $(document).ready(function () {
       showCancelButton: true,
       cancelButtonText: 'Batal',
       confirmButtonText: 'Yakin, Keluar',
-      confirmButtonColor: '#0c0b52',
-      cancelButtonColor: '#d33',
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'btn-red',
+        cancelButton: 'btn-default'
+      },
       allowOutsideClick: false,
     }).then((result) => {
       if (result.isConfirmed) {
