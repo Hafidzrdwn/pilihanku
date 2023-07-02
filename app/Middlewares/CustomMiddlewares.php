@@ -14,6 +14,10 @@ class CustomMiddlewares
   public function auth()
   {
     if (!isset($_SESSION['isLogin'])) {
+      $_SESSION['alert'] = [
+        'type' => 'danger',
+        'message' => 'Masuk untuk akses semua halaman!'
+      ];
       header('Location: ' . BASEURL . '/auth/login');
       exit();
     }
