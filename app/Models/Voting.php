@@ -20,8 +20,8 @@ class Voting extends Database
     return $this->find($id, $this->table);
   }
 
-  public function getBy($data = [])
+  public function getBy($data = [], $type = 'single')
   {
-    return $this->where($data, $this->table);
+    return $this->where($data, $type, $this->table);
   }
 }
