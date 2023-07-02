@@ -83,6 +83,12 @@ class Database
     return $this->stmt->rowCount();
   }
 
+  public function all($table_name)
+  {
+    $this->query('SELECT * FROM ' . $table_name);
+    return $this->resultSet();
+  }
+
   public function insert($data, $table_name)
   {
 
@@ -108,7 +114,7 @@ class Database
     return $this->single();
   }
 
-  public function where($data, $table_name)
+  public function where($data, $type, $table_name)
   {
     $query = 'SELECT * FROM ' . $table_name . ' WHERE ';
     $i = 0;
@@ -126,6 +132,8 @@ class Database
     foreach ($data as $key => $value) {
       $this->bind($key, $value);
     }
+
+    if ($type == 'all') return $this->resultSet();
 
     return $this->single();
   }
